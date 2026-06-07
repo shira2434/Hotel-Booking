@@ -10,4 +10,6 @@ public interface CustomerService {
     List<CustomerDTO> getAll();
     CustomerDTO getById(int id);
     CustomerDTO getByEmail(String email);
+    CustomerDTO register(CustomerDTO customer);
+    CustomerDTO login(String email, String password);
 }

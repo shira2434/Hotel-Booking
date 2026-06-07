@@ -30,4 +30,10 @@ public class CustomerController {
 
     @GetMapping("/getByEmail/{email}")
     public CustomerDTO getByEmail(@PathVariable String email) { return cs.getByEmail(email); }
+
+    @PostMapping("/register")
+    public CustomerDTO register(@RequestBody CustomerDTO customer) { return cs.register(customer); }
+
+    @PostMapping("/login")
+    public CustomerDTO login(@RequestParam String email, @RequestParam String password) { return cs.login(email, password); }
 }

@@ -4,6 +4,7 @@ import Customers from './components/Customers';
 import Bookings from './components/Bookings';
 import Dashboard from './components/Dashboard';
 import Toast from './components/Toast';
+import Login from './components/Login';
 import useToast from './useToast';
 
 export const ToastContext = createContext(null);
@@ -19,7 +20,10 @@ const pages = [
 export default function App() {
   const [page, setPage] = useState('dashboard');
   const { toasts, removeToast, toast } = useToast();
+  const [user, setUser] = useState(null);
   const current = pages.find(p => p.id === page);
+
+  if (!user) return <Login onLogin={setUser} />;
 
   return (
     <ToastContext.Provider value={toast}>
@@ -57,6 +61,7 @@ export default function App() {
             </div>
             <div className="topbar-right">
               <div className="topbar-pill"><span>●</span> מחובר לשרת</div>
+              <button className="btn btn-secondary btn-sm" onClick={() => setUser(null)}>התנתקות</button>
             </div>
           </div>
           <div className="page">

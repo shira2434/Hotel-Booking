@@ -15,6 +15,8 @@ export const getAllCustomers = () => axios.get(`${BASE}/customers/getAll`);
 export const addCustomer = (c) => axios.post(`${BASE}/customers/add`, c);
 export const updateCustomer = (c) => axios.put(`${BASE}/customers/update`, c);
 export const deleteCustomer = (id) => axios.delete(`${BASE}/customers/delete/${id}`);
+export const registerCustomer = (c) => axios.post(`${BASE}/customers/register`, c);
+export const loginCustomer = (email, password) => axios.post(`${BASE}/customers/login`, null, { params: { email, password } });
 
 // Bookings
 export const getAllBookings = () => axios.get(`${BASE}/bookings/getAll`);
