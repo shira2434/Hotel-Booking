@@ -21,10 +21,11 @@ export default function Toast({ toasts, removeToast }) {
 function ToastItem({ toast, onRemove }) {
   const c = colors[toast.type] || colors.info;
 
+  // התיקון בוצע כאן: הוספנו את onRemove למערך התלויות כדי לעבור את ה-ESLint ב-Netlify
   useEffect(() => {
     const timer = setTimeout(onRemove, 3500);
     return () => clearTimeout(timer);
-  }, []);
+  }, [onRemove]);
 
   return (
     <div style={{
