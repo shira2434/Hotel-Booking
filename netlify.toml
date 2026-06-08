@@ -1,0 +1,4 @@
+[build]
+  base = "hotel-client"
+  publish = "hotel-client/build"
+  command = "npm run build"
